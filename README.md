@@ -1,30 +1,28 @@
 # 🦷 Dental AI Analyzer ✨
 
-![Screenshot](REPLACE_WITH_YOUR_SCREENSHOT_URL)
-
-A full-stack web application that analyzes dental X-ray (DICOM) images to detect pathologies using AI and generates a formal diagnostic report in clinical language.
+> A full-stack web application that analyzes dental X-ray (DICOM) images to detect pathologies using AI and generates a professional diagnostic report.
 
 ---
 
 ## 🌟 Key Features
 
 - 🦷 **DICOM File Processing**  
-  Upload and analyze standard `.dcm` and `.rvg` dental X-ray files securely.
+  Securely upload and process standard `.dcm` and `.rvg` dental X-ray files.
 
 - 🤖 **AI-Powered Detection**  
-  Utilizes a Roboflow object detection model to identify **cavities** and **periapical lesions** with high confidence.
+  Utilizes a Roboflow object detection model to accurately identify cavities and periapical lesions.
 
 - 🎨 **Dynamic Annotations**  
-  Visual overlays (color-coded bounding boxes) highlight detected regions on the radiograph.
+  Overlays precise, color-coded bounding boxes on the X-ray to visually highlight detected issues.
 
 - ✍️ **LLM-Generated Reports**  
-  OpenAI GPT API creates professional, human-readable diagnostic reports for clinical use.
+  Leverages the OpenAI GPT API to generate structured, human-readable diagnostic reports in clinical language.
 
 - 🖥️ **Responsive UI**  
-  Clean two-panel interface built with **React** and **Tailwind CSS**, optimized for desktops and tablets.
+  A modern, clean, two-panel interface built with React and Tailwind CSS for a seamless experience on any device.
 
-- 🔒 **Secure Backend**  
-  FastAPI-based backend with asynchronous inference calls, structured error handling, and API key safety via `.env`.
+- 🔒 **Secure & Robust Backend**  
+  Built with FastAPI, featuring asynchronous operations and structured error handling.
 
 ---
 
@@ -32,128 +30,105 @@ A full-stack web application that analyzes dental X-ray (DICOM) images to detect
 
 **Frontend:** React, Tailwind CSS  
 **Backend:** FastAPI, Python 3.11+  
-**AI Services:** Roboflow Detection API, OpenAI GPT-3.5  
+**AI Services:** Roboflow API, OpenAI GPT-3.5  
 **Data Format:** DICOM (.dcm/.rvg)  
-**Communication:** REST APIs  
-**Others:** Base64 Image Handling, Markdown Reports
+**Architecture Flow:**  
+*Frontend ➝ Backend ➝ AI APIs (Roboflow + OpenAI) ➝ Backend ➝ Frontend*
 
-### 🧭 Architecture Diagram
 
-```plaintext
-User
- |
- v
-Frontend (React + Tailwind)
- |
- v
-Backend (FastAPI)
- |
- v
-+------------------------+
-| Roboflow Detection API |
-+------------------------+
-| OpenAI GPT API         |
-+------------------------+
- |
- v
-Backend ➝ Frontend ➝ UI (Report + Annotated Image)
-🚀 Getting Started
-Follow these steps to set up and run the project locally.
-```
-✅ Prerequisites
-Python 3.11+
 
-Node.js v18+ and npm
+---
 
-Git
+## 🚀 Getting Started
 
-1. Clone the Repository
-bash
-Copy
-Edit
+### ✅ Prerequisites
+
+- Python 3.11+
+- Node.js v18+ and npm
+- Git
+
+---
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/YOUR_GITHUB_USERNAME/dental-ai-analyzer.git
 cd dental-ai-analyzer
-2. Configure API Keys
-Create a .env file in the project root. You can use the .env.example if available:
+```
 
-bash
-Copy
-Edit
+---
+
+### 2. Configure API Keys
+
+Create a `.env` file in the root directory. You can copy it from `.env.example`:
+
+```bash
 cp .env.example .env
-Edit the .env file and add:
+```
 
-env
-Copy
-Edit
-ROBOFLOW_API_KEY="your_roboflow_api_key_here"
-OPENAI_API_KEY="your_openai_api_key_here"
-3. Backend Setup (Terminal 1)
-bash
-Copy
-Edit
-# Create and activate virtual environment
+Edit the `.env` file and add:
+
+```env
+ROBOFLOW_API_KEY="YOUR_ROBOFLOW_API_KEY_HERE"
+OPENAI_API_KEY="YOUR_OPENAI_API_KEY_HERE"
+```
+
+---
+
+### 3. Backend Setup (Terminal 1)
+
+```bash
+# Create and activate a virtual environment
 python -m venv venv
-source venv/bin/activate     # On Windows: venv\Scripts\activate
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Run the backend server (default port: 8000)
+# Start the backend server
 uvicorn main:app --reload
-4. Frontend Setup (Terminal 2)
-bash
-Copy
-Edit
+```
+
+---
+
+### 4. Frontend Setup (Terminal 2)
+
+```bash
 cd frontend
 
-# Install frontend dependencies
+# Install dependencies
 npm install
 
-# Run development server (default port: 5173)
+# Start the frontend server
 npm run dev
-✅ How to Use
-Open your browser and visit: http://localhost:5173
+```
 
-Click "Select DICOM File" and upload a .dcm or .rvg file.
+---
 
-Click "Analyze Image".
+## ✅ How to Use
 
-View:
+1. Open your browser and go to [http://localhost:5173](http://localhost:5173)
+2. Click **"Select DICOM File"** and choose a `.dcm` or `.rvg` file.
+3. Click **"Analyze Image"**.
+4. View the **annotated X-ray** on the left and the **AI-generated report** on the right.
 
-Annotated X-ray (left panel)
+---
 
-AI-generated diagnostic report (right panel)
+## 📸 Screenshots
+![App screenshot](./frontend/readme%20images/1.png)
 
-📸 Screenshots
-Replace this with your image or link:
+---
 
-🧠 Sample Report Preview
-markdown
-Copy
-Edit
-**Findings:**
-- A cavity detected with 85% confidence on the right side.
-- A periapical abscess detected with 84% confidence on the right side.
+## 📄 License
 
-**Interpretation:**
-- The cavity suggests a localized area of decay.
-- The periapical abscess may indicate root infection.
+This project is licensed under the [MIT License](LICENSE).
 
-**Recommendations:**
-- Consider immediate dental filling and abscess drainage.
+---
 
-**Disclaimer:** This is an AI-generated report for educational purposes only. All findings must be clinically validated.
-🤝 Contributing
-Pull requests are welcome! For major changes, please open an issue first to discuss your ideas.
+## 🙏 Acknowledgements
 
-📄 License
-This project is licensed under the MIT License.
-
-🙏 Acknowledgements
-Roboflow
-
-OpenAI
-
-FastAPI
-
-React
+- [Roboflow](https://roboflow.com)
+- [OpenAI](https://openai.com)
+- [FastAPI](https://fastapi.tiangolo.com)
+- [React](https://react.dev)
+- [Tailwind CSS](https://tailwindcss.com)
