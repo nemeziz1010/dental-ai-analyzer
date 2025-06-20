@@ -59,7 +59,7 @@ Backend (FastAPI)
 Backend ➝ Frontend ➝ UI (Report + Annotated Image)
 🚀 Getting Started
 Follow these steps to set up and run the project locally.
-
+```
 ✅ Prerequisites
 Python 3.11+
 
