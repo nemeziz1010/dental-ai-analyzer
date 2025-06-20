@@ -23,17 +23,21 @@
 
 - 🔒 **Secure & Robust Backend**  
   Built with FastAPI, featuring asynchronous operations and structured error handling.
-
+  
+- 🐳 **Dockerized Deployment**  
+  Easily portable and consistent development and production environments using Docker containers.
+  
 ---
 
 ## 🛠️ Tech Stack & Architecture
 
 **Frontend:** React, Tailwind CSS  
 **Backend:** FastAPI, Python 3.11+  
+**Containerization:** Docker   
 **AI Services:** Roboflow API, OpenAI GPT-3.5  
 **Data Format:** DICOM (.dcm/.rvg)  
 **Architecture Flow:**  
-*Frontend ➝ Backend ➝ AI APIs (Roboflow + OpenAI) ➝ Backend ➝ Frontend*
+*Frontend ➝ Backend (Dockerized) ➝ AI APIs (Roboflow + OpenAI) ➝ Backend ➝ Frontend*
 
 
 
@@ -46,6 +50,7 @@
 - Python 3.11+
 - Node.js v18+ and npm
 - Git
+- Docker Desktop (for containerized setup)
 
 ---
 
@@ -75,33 +80,52 @@ OPENAI_API_KEY="YOUR_OPENAI_API_KEY_HERE"
 
 ---
 
-### 3. Backend Setup (Terminal 1)
+### 3. **Build and Run:**
 
+Make sure Docker Desktop is running, then execute:
+```bash
+docker compose up --build
+```
+
+### 4. **Access the App:**
+
+Open your browser and navigate to `http://localhost`.
+
+---
+
+### Option 2: Running Locally (Without Docker)
+Follow these steps if you prefer to run the frontend and backend servers directly on your machine.
+
+1. **Clone & Configure:**
+
+Follow steps 1 and 2 from the Docker setup above.
+
+2. **Backend Setup (Terminal 1):**
 ```bash
 # Create and activate a virtual environment
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Install dependencies
+# Install Python dependencies
 pip install -r requirements.txt
 
 # Start the backend server
 uvicorn main:app --reload
 ```
 
----
-
-### 4. Frontend Setup (Terminal 2)
-
+3. **Frontend Setup (Terminal 2):**
 ```bash
+# Navigate to the frontend directory
 cd frontend
 
-# Install dependencies
+# Install Node.js dependencies
 npm install
 
-# Start the frontend server
+# Start the frontend development server
 npm run dev
 ```
+
+You can now access the app at `http://localhost:5173`.
 
 ---
 
