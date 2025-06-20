@@ -104,7 +104,7 @@ def generate_llm_diagnostic_report(annotations: List[Annotation]) -> str:
     )
 
     user_prompt = f"""
-### Diagnostic Report
+### 
 
 **Patient Name:** {patient_name}  
 **Exam Date:** {exam_date}  
@@ -114,12 +114,10 @@ def generate_llm_diagnostic_report(annotations: List[Annotation]) -> str:
 
 **Findings:**  
 {findings_block}
-
 ---
 
 **Interpretation:**  
 {interpretation_block}
-
 ---
 
 Please continue by generating:

@@ -168,7 +168,7 @@ const App = () => {
 
   // --- Render ---
   return (
-    <div className="bg-gray-900 text-gray-100 max-h-screen w-screen overflow-hidden font-sans">
+    <div className="bg-gray-900 text-gray-100 max-h-screen w-screen overflow-auto font-sans">
       <div className="container mx-auto p-4 sm:p-6 md:p-8">
         <header className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold text-cyan-400">Dental AI Analyzer</h1>
@@ -204,9 +204,9 @@ const App = () => {
           </div>
 
           {/* Right Panel */}
-          <div className="lg:col-span-2 bg-gray-800 p-6 rounded-xl shadow-2xl">
-            <h2 className="text-2xl font-bold mb-4 border-b border-gray-700 pb-2 text-cyan-400">Diagnostic Report</h2>
-            <div className="report-content h-[400px] md:h-[500px] text-gray-300 overflow-y-auto pr-2">
+          <div className="lg:col-span-2 bg-gray-800 p-5 rounded-xl shadow-2xl">
+            <h2 className="text-2xl font-bold mb-1 border-b border-gray-700 pb-2 text-cyan-400">Diagnostic Report</h2>
+            <div className="report-content h-[400px] md:h-[650px] text-gray-300 overflow-y-auto pr-2">
                 {error && (
                   <div className="bg-red-900/50 border border-red-700 text-red-300 p-4 rounded-lg">
                     <p className="font-bold">Error</p>
