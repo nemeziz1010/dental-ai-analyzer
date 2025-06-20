@@ -1,33 +1,66 @@
-Dental AI Analyzer 🦷✨
+# 🦷 Dental AI Analyzer ✨
 
-Replace this URL with a link to one of your screenshots showing the final result.
+![Screenshot](REPLACE_WITH_YOUR_SCREENSHOT_URL)
 
-A full-stack web application that analyzes dental X-ray (DICOM) images to detect pathologies using AI and generates a professional diagnostic report.
-🌟 Key Features
-🦷 DICOM File Processing: Securely upload and process standard .dcm and .rvg dental X-ray files.
+A full-stack web application that analyzes dental X-ray (DICOM) images to detect pathologies using AI and generates a formal diagnostic report in clinical language.
 
-🤖 AI-Powered Detection: Utilizes a Roboflow object detection model to accurately identify cavities and periapical lesions.
+---
 
-🎨 Dynamic Annotations: Overlays precise, color-coded bounding boxes on the X-ray to visually highlight detected issues.
+## 🌟 Key Features
 
-✍️ LLM-Generated Reports: Leverages the OpenAI GPT API to generate structured, human-readable diagnostic reports in clinical language.
+- 🦷 **DICOM File Processing**  
+  Upload and analyze standard `.dcm` and `.rvg` dental X-ray files securely.
 
-🖥️ Responsive UI: A modern, clean, two-panel interface built with React and Tailwind CSS for a seamless experience on any device.
+- 🤖 **AI-Powered Detection**  
+  Utilizes a Roboflow object detection model to identify **cavities** and **periapical lesions** with high confidence.
 
-🔒 Secure & Robust Backend: Built with FastAPI, featuring asynchronous operations and clear, structured error handling.
+- 🎨 **Dynamic Annotations**  
+  Visual overlays (color-coded bounding boxes) highlight detected regions on the radiograph.
 
-🛠️ Tech Stack & Architecture
-Technologies Used
-Architecture Diagram
-(This is a simplified view of the application's data flow)
+- ✍️ **LLM-Generated Reports**  
+  OpenAI GPT API creates professional, human-readable diagnostic reports for clinical use.
 
+- 🖥️ **Responsive UI**  
+  Clean two-panel interface built with **React** and **Tailwind CSS**, optimized for desktops and tablets.
 
-Replace this URL with a link to a simple diagram showing the flow: Frontend -> Backend -> AI APIs -> Backend -> Frontend.
+- 🔒 **Secure Backend**  
+  FastAPI-based backend with asynchronous inference calls, structured error handling, and API key safety via `.env`.
 
+---
+
+## 🛠️ Tech Stack & Architecture
+
+**Frontend:** React, Tailwind CSS  
+**Backend:** FastAPI, Python 3.11+  
+**AI Services:** Roboflow Detection API, OpenAI GPT-3.5  
+**Data Format:** DICOM (.dcm/.rvg)  
+**Communication:** REST APIs  
+**Others:** Base64 Image Handling, Markdown Reports
+
+### 🧭 Architecture Diagram
+
+```plaintext
+User
+ |
+ v
+Frontend (React + Tailwind)
+ |
+ v
+Backend (FastAPI)
+ |
+ v
++------------------------+
+| Roboflow Detection API |
++------------------------+
+| OpenAI GPT API         |
++------------------------+
+ |
+ v
+Backend ➝ Frontend ➝ UI (Report + Annotated Image)
 🚀 Getting Started
-Follow these instructions to set up and run the project on your local machine.
+Follow these steps to set up and run the project locally.
 
-Prerequisites
+✅ Prerequisites
 Python 3.11+
 
 Node.js v18+ and npm
@@ -35,52 +68,92 @@ Node.js v18+ and npm
 Git
 
 1. Clone the Repository
-git clone [https://github.com/](https://github.com/)[YOUR_GITHUB_USERNAME]/dental-ai-analyzer.git
+bash
+Copy
+Edit
+git clone https://github.com/YOUR_GITHUB_USERNAME/dental-ai-analyzer.git
 cd dental-ai-analyzer
-
 2. Configure API Keys
-Create a .env file in the root directory by copying the example file (.env.example). If you don't have an example file, create one with the content below.
+Create a .env file in the project root. You can use the .env.example if available:
 
-# This command works if you have .env.example
+bash
+Copy
+Edit
 cp .env.example .env
+Edit the .env file and add:
 
-Important: Open the .env file and add your private API keys from Roboflow and OpenAI.
-
-ROBOFLOW_API_KEY="YOUR_ROBOFLOW_API_KEY_HERE"
-OPENAI_API_KEY="YOUR_OPENAI_API_KEY_HERE"
-
+env
+Copy
+Edit
+ROBOFLOW_API_KEY="your_roboflow_api_key_here"
+OPENAI_API_KEY="your_openai_api_key_here"
 3. Backend Setup (Terminal 1)
-The backend server runs on port 8000.
-
-# Create and activate a virtual environment from the project root
+bash
+Copy
+Edit
+# Create and activate virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate     # On Windows: venv\Scripts\activate
 
-# Install Python dependencies
+# Install dependencies
 pip install -r requirements.txt
 
-# Start the backend server
+# Run the backend server (default port: 8000)
 uvicorn main:app --reload
-
 4. Frontend Setup (Terminal 2)
-The frontend application runs on port 5173.
-
-# Navigate to the frontend directory
+bash
+Copy
+Edit
 cd frontend
 
-# Install Node.js dependencies
+# Install frontend dependencies
 npm install
 
-# Start the frontend development server
+# Run development server (default port: 5173)
 npm run dev
-
 ✅ How to Use
-Once both servers are running:
+Open your browser and visit: http://localhost:5173
 
-Open your browser and navigate to http://localhost:5173.
-
-Click "Select DICOM File" and choose a .dcm or .rvg file.
+Click "Select DICOM File" and upload a .dcm or .rvg file.
 
 Click "Analyze Image".
 
-Observe the annotated image in the left panel and the AI-generated diagnostic report in the right panel.
+View:
+
+Annotated X-ray (left panel)
+
+AI-generated diagnostic report (right panel)
+
+📸 Screenshots
+Replace this with your image or link:
+
+🧠 Sample Report Preview
+markdown
+Copy
+Edit
+**Findings:**
+- A cavity detected with 85% confidence on the right side.
+- A periapical abscess detected with 84% confidence on the right side.
+
+**Interpretation:**
+- The cavity suggests a localized area of decay.
+- The periapical abscess may indicate root infection.
+
+**Recommendations:**
+- Consider immediate dental filling and abscess drainage.
+
+**Disclaimer:** This is an AI-generated report for educational purposes only. All findings must be clinically validated.
+🤝 Contributing
+Pull requests are welcome! For major changes, please open an issue first to discuss your ideas.
+
+📄 License
+This project is licensed under the MIT License.
+
+🙏 Acknowledgements
+Roboflow
+
+OpenAI
+
+FastAPI
+
+React
