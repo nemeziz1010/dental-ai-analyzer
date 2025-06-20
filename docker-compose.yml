@@ -1,0 +1,25 @@
+# The 'version' tag is obsolete and has been removed.
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend.Dockerfile
+    # Pass the API keys from the local .env file into the container
+    env_file:
+      - .env
+    # The name 'backend' can be used by other services to connect
+    container_name: dental-ai-backend
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend.Dockerfile
+    container_name: dental-ai-frontend
+    ports:
+      # Map port 80 in the container to port 80 on your machine
+      - "80:80"
+    # This ensures the backend starts before the frontend
+    depends_on:
+      - backend
