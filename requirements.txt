@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+pydantic-settings
+python-multipart
+pydicom
+numpy
+Pillow
+inference-sdk
+openai
+pylibjpeg
+python-gdcm
