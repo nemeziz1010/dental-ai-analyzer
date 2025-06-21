@@ -6,25 +6,25 @@
 
 ## 🌟 Key Features
 
-- 🦷 **DICOM File Processing**  
+-  **DICOM File Processing**  
   Securely upload and process standard `.dcm` and `.rvg` dental X-ray files.
 
-- 🤖 **AI-Powered Detection**  
+-  **AI-Powered Detection**  
   Utilizes a Roboflow object detection model to accurately identify cavities and periapical lesions.
 
-- 🎨 **Dynamic Annotations**  
+-  **Dynamic Annotations**  
   Overlays precise, color-coded bounding boxes on the X-ray to visually highlight detected issues.
 
-- ✍️ **LLM-Generated Reports**  
-  Leverages the OpenAI GPT API to generate structured, human-readable diagnostic reports in clinical language.
+-  **LLM-Generated Reports**  
+  Leverages the OpenAI API (using the **GPT-4** model) to generate structured, human-readable diagnostic reports in clinical language.
 
-- 🖥️ **Responsive UI**  
+-  **Responsive UI**  
   A modern, clean, two-panel interface built with React and Tailwind CSS for a seamless experience on any device.
 
-- 🔒 **Secure & Robust Backend**  
+-  **Secure & Robust Backend**  
   Built with FastAPI, featuring asynchronous operations and structured error handling.
   
-- 🐳 **Dockerized Deployment**  
+-  **Dockerized Deployment**  
   Easily portable and consistent development and production environments using Docker containers.
   
 ---
@@ -34,7 +34,7 @@
 **Frontend:** React, Tailwind CSS  
 **Backend:** FastAPI, Python 3.11+  
 **Containerization:** Docker   
-**AI Services:** Roboflow API, OpenAI GPT-3.5  
+**AI Services:** Roboflow API, OpenAI GPT-4.0  
 **Data Format:** DICOM (.dcm/.rvg)  
 **Architecture Flow:**  
 *Frontend ➝ Backend (Dockerized) ➝ AI APIs (Roboflow + OpenAI) ➝ Backend ➝ Frontend*
@@ -45,11 +45,10 @@
 
 ## 🚀 Getting Started
 
-### ✅ Prerequisites
+### Prerequisites
 
 - Python 3.11+
 - Node.js v18+ and npm
-- Git
 - Docker Desktop (for containerized setup)
 
 ---
@@ -57,7 +56,7 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/dental-ai-analyzer.git
+git clone https://github.com/nemeziz1010/dental-ai-analyzer.git
 cd dental-ai-analyzer
 ```
 
@@ -129,27 +128,21 @@ You can now access the app at `http://localhost:5173`.
 
 ---
 
-## ✅ How to Use
+## How to Use
 
-1. Open your browser and go to [http://localhost:5173](http://localhost:5173)
+1. Open your browser and go to [http://localhost](http://localhost)
 2. Click **"Select DICOM File"** and choose a `.dcm` or `.rvg` file.
 3. Click **"Analyze Image"**.
 4. View the **annotated X-ray** on the left and the **AI-generated report** on the right.
 
 ---
 
-## 📸 Screenshots
-![App screenshot](./frontend/readme%20images/1.png)
+## Screenshots
+![App screenshot](./frontend/readme%20images/main.png)
 
 ---
 
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 🙏 Acknowledgements
+## Acknowledgements
 
 - [Roboflow](https://roboflow.com)
 - [OpenAI](https://openai.com)
