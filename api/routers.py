@@ -1,14 +1,12 @@
-# api/routers.py
 
 from fastapi import APIRouter, File, UploadFile, HTTPException, status
 from typing import Annotated
 
 from models.schema import InferenceResponse
 from services.dicom_processor import dicom_to_base64_png
-# Import the new LLM function instead of the mock one
 from services.inference import get_roboflow_predictions, generate_llm_diagnostic_report
 
-# Create a new router object
+
 router = APIRouter(
     prefix="/analysis", 
     tags=["Analysis"]
@@ -41,9 +39,7 @@ async def analyze_dicom_image(
         annotations = get_roboflow_predictions(image_b64)
 
         
-        # We now call the new LLM report generation function
         report = generate_llm_diagnostic_report(annotations)
-        # ----------------------------------------
         
         return InferenceResponse(
             report=report,

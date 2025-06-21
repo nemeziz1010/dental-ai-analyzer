@@ -13,30 +13,28 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# --- Middleware ---
-# CORS middleware to allow cross-origin requests from our frontend
-# crucial for development when frontend and backend run on different ports
+# Middleware
+
 origins = [
     "http://localhost",
-    "http://localhost:3000", # Default for React
-    "http://localhost:5173", # Default for Vite/React
+    "http://localhost:3000", 
+    "http://localhost:5173",
 ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"], # Allow all methods (GET, POST, etc.)
-    allow_headers=["*"], # Allow all headers
+    allow_methods=["*"], 
+    allow_headers=["*"], 
 )
 
 
-# --- Routers ---
-# Include the analysis router 
+# Routers
+ 
 app.include_router(analysis_router)
 
 
-# --- Root Endpoint ---
 @app.get("/", tags=["Root"])
 async def read_root():
     """A simple root endpoint to confirm the API is running."""

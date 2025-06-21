@@ -1,4 +1,3 @@
-# The 'version' tag is obsolete and has been removed.
 services:
   backend:
     build:
@@ -7,7 +6,6 @@ services:
     # Pass the API keys from the local .env file into the container
     env_file:
       - .env
-    # The name 'backend' can be used by other services to connect
     container_name: dental-ai-backend
     ports:
       - "8000:8000"
